@@ -1,0 +1,40 @@
+﻿@model MvcApplication1.Models.Class1
+<h2>Check Data </h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        @Html.Label("FirstName:")
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div>
+        @Html.Label("LastName:")
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div>
+        @Html.Label("PhoneNumber:")
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control" })
+        </div>
+    </div>
+    <div>
+        @Html.Label("Address:")
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
+        </div>
+    </div>
+    <hr>
+    <button class="submit" href="~/Home/Index">Check</button>
+
+    if (TempData["message"] != null)
+    {
+        <div class="alert alert-warning alert-dismissable" role="alert" style="margin-top: 5px">
+            <h4>@TempData["message"]</h4>
+        </div>
+    }
+}
